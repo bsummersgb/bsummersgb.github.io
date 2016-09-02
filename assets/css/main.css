@@ -1,0 +1,513 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+// Our variables
+// $base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+// $base-font-size:   16px;
+// $base-font-weight: 400;
+// $small-font-size:  $base-font-size * 0.875;
+// $base-line-height: 1.5;
+//
+// $spacing-unit:     30px;
+//
+// $text-color:       #111;
+// $background-color: #fdfdfd;
+// $brand-color:      #2a7ae2;
+//
+// $grey-color:       #828282;
+// $grey-color-light: lighten($grey-color, 40%);
+// $grey-color-dark:  darken($grey-color, 25%);
+
+// Width of the content area
+// $content-width:    800px;
+//
+// $on-palm:          600px;
+// $on-laptop:        800px;
+
+// Minima also includes a mixin for defining media queries.
+// Use media queries like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+
+// Import partials from the `minima` theme.
+// @import "minima";
+
+/* General */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+a, a:hover, a:visited  {
+  color: inherit;
+}
+
+
+
+h1 {
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  line-height: 26.4px;
+}
+
+h2 {
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: 18px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 19.4px;
+}
+
+h3 {
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 15.4px;
+}
+p, li {
+	font-family: "Trebuchet MS", Arial, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 200 !important;
+	line-height: 20px;
+}
+
+
+/* Functionality and aesthetic of #nav-toggle menu icon */
+#nav-toggle {
+  position: relative;
+}
+
+#nav-toggle span {
+  position: fixed;
+}
+
+#nav-toggle span span,
+#nav-toggle span span:before,
+#nav-toggle span span:after {
+  display: block;
+  border-radius: 1px;
+  height: 5px;
+  width: 35px;
+  background: #fff;
+  position: absolute;
+  content: '';
+}
+
+#nav-toggle span, #nav-toggle span span {
+  top: 5%;
+  right: 5%;
+  z-index: 1000;
+}
+
+#nav-toggle span span:before {
+  top: -10px;
+}
+#nav-toggle span span:after {
+  bottom: -10px;
+}
+
+#nav-toggle span span, #nav-toggle span span:before, #nav-toggle span span:after {
+  transition: all 500ms ease-in-out;
+}
+#nav-toggle.active span span {
+  background-color: transparent;
+}
+#nav-toggle.active span span:before, #nav-toggle.active span span:after {
+  top: 0;
+}
+#nav-toggle.active span span:before {
+  transform: rotate(45deg);
+}
+#nav-toggle.active span span:after {
+  transform: rotate(-45deg);
+}
+
+/* Functionality of collapsable menu */
+
+.left-col {
+  position: fixed;
+  z-index: 900;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  opacity: .95;
+  text-align: center;
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.left-col.open {
+  transform: translateX(0);
+}
+
+nav li {
+  list-style: none;
+}
+
+.main-navigation ul {
+  padding: 0;
+  margin: 0;
+}
+
+.main-navigation ul a {
+  padding: 30px 30px;
+  font-size: 2.8rem;
+  display: block;
+  text-decoration: none;
+  color: #fff;
+}
+
+.main-navigation ul a.active {
+  box-shadow: inset -3px 0px 0 0 white;
+}
+
+.main-navigation {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+/* view-panel */
+
+.view-panel {
+  min-height: 100vh;
+}
+
+.panel-header {
+  font-size: 2.8rem;
+  line-height: 3.9rem;
+  font-weight: 400;
+  position: relative; /* Must be explicitly set so that the pseudo after element is absolutely positioned realtive to its <h2> parent */
+  margin-bottom: 3.9rem;
+}
+
+.panel-header:after {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  height: 3px;
+  width: 2.827rem;
+  background-color: #003459;
+}
+
+.panel-content {
+  font-size: 1.5rem;
+  line-height: 2.2rem;
+  padding: 5%;
+  font-weight: 300;
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* About panel */
+
+.about {
+  background: url('/assets/img/my-desk.jpg') 50% / cover;
+  position: relative;
+  color: #fff;
+}
+
+.about-wrapper {
+  width: 100%;
+  background: rgba(0,23,31, .4);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.intro-image img {
+  margin: 0 auto;
+}
+
+/* Portfolio Panel */
+.portfolio-thumb {
+  display: block;
+  margin: 5% auto;
+  padding: 0.5rem;
+  background: rgba(0,0,0,.2);
+  border: 1px solid rgba(255,255,255,.2);
+  box-shadow: 2px 2px 4px 4px rgba(0,0,0,.3);
+  transition: .3s all;
+}
+
+.portfolio-thumb:hover {
+  transform: scale(1.05);
+  box-shadow: 6px 6px 8px 8px rgba(0,0,0,.3);
+}
+
+/* Modals: Style and Functionality */
+.modal-container {
+  position: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0,0,0,.8);
+  z-index: 1000;
+  opacity: 0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  pointer-events: none;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.modal-container:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.my-modal {
+  position: absolute;
+  margin: 10% auto;
+  padding: 5px 20px 13px 20px;
+  border-radius: 10px;
+  background: #fff;
+  background: -moz-linear-gradient(#fff, #aaa);
+  background: -webkit-linear-gradient(#fff, #aaa);
+  background:-o-linear-gradient(#fff, #aaa);
+  z-index: 1001;
+}
+
+.modal-hr {
+  border-top: 1px solid #ccc;
+}
+
+.modal-cta {
+  font-weight: bold;
+  text-align: center;
+}
+
+.modal-thumbnail {
+  width: 90%;
+  display: block;
+  margin: 5% auto;
+  box-shadow: 10px 5px 5px #aaa;
+}
+
+.close-icon {
+  background: #00A8E8;
+  color: #fff !important;
+  line-height: 25px;
+  position: absolute;
+  right: -12px;
+  text-align: center;
+  top: -10px;
+  width: 24px;
+	text-decoration: none;
+	font-weight: bold;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	-moz-box-shadow: 1px 1px 3px #000;
+	-webkit-box-shadow: 1px 1px 3px #000;
+	box-shadow: 1px 1px 3px #000;
+}
+
+.close-icon:hover {
+  background: #007EA7;
+  text-decoration: none;
+}
+
+#my-works {
+  background: url('/assets/img/grey-subtle-old-paper.png') 0px 0px repeat;
+  box-shadow: inset 0 0 14px 14px rgba(0, 0, 0, 0.4);
+}
+
+/* Contact Panel */
+.contact {
+  color: white;
+}
+
+.form-item {
+  margin-bottom: 2rem;
+}
+
+.form-item label {
+  display: block; /* places the label above the form fields  */
+  font-size: 1.414rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-item input,
+.form-item textarea {
+  width: 100%;
+  display: block;
+  padding: 0.5rem;
+  font-size: 2rem;
+  border: 1px solid rgba(255,255,255,.2);
+  background: rgba(0,0,0,.2);
+  transition: .3s all; /* Delays the focus of the new styles after clicking on the field */
+  box-shadow: 2px 2px 2px 2px rgba(0,0,0,.3);
+  font-weight: 300;
+  letter-spacing: .1rem;
+}
+
+.form-item input:focus,
+.form-item textarea:focus {
+  background: rgba(0,0,0,1); /* Makes background completely opaque on focus */
+  border: 1px solid rgba(255,255,255,.6); /* Gives field a subtle visual internal border on focus. This is useful after the default blue outline is removed */
+  outline: 0; /* Short-hand for outline width, style, color of the outline on focus (in same fashion as border property) */
+}
+
+.form-item input {
+  line-height: 2rem;
+}
+
+.submit-btn {
+  border: 1px solid rgba(255,255,255,.6);
+  text-shadow: 2px 2px 1px rgba(0,0,0,.4);
+  background: #003459;
+  font-size: 2rem;
+  padding: 1.5rem 3rem;
+  cursor: pointer;
+  box-shadow: inset 0 0 25px 0 rgba(0,0,0,.2), 2px 2px 2px 2px rgba(0,0,0,.3);
+  transition: .3s;
+  float: right;
+}
+
+.submit-btn:hover {
+  box-shadow: inset 0 0 25px 0 rgba(255,255,255,.4), 2px 2px 2px 2px rgba(0,0,0,.3);
+}
+
+#profile-pic {
+  display: block;
+  max-width: 75%;
+  margin: 0 auto;
+  -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));
+  /*filter: url(#drop-shadow);*/
+  /*-ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#fff')";*/
+  /*filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#fff')";*/
+}
+
+.contact-icons {
+  text-align: center;
+  font-size: 4rem;
+  margin-bottom: 0;
+}
+
+.contact-icon {
+  margin: 2% 2.5%;
+  text-shadow: 2px 2px 2px rgba(0,0,0,.4);
+  transition: .3s all;
+
+
+}
+
+.contact-icon:hover {
+  transform: scale(1.5);
+  drop-shadow: 6px 6px 8px 8px rgba(0,0,0,.3);
+}
+
+/* Footer */
+
+footer {
+  background: url("http://www.free-patterns.info/wp-content/uploads/2015/04/dark-triangles-mixed-wall-v1631520.png") 0px 0px repeat;
+}
+
+.copyright {
+  background: black;
+  margin-bottom: 0;
+  color: white;
+  padding: .5rem;
+  text-align: center;
+  opacity: .5;
+}
+
+/* Desktop Styles */
+@media (min-width: 980px) {
+  #nav-toggle span {
+    left: 100%;
+  }
+
+  .left-col {
+    background: #003459;
+    position: fixed;
+    left: 200px;
+    height: 100%;
+    width: 200px;
+    opacity: 1;
+    box-shadow: inset 0 0 25px 0 rgba(0,0,0,.2), 5px 0 23px rgba(0,0,0,.5);
+  }
+
+  .main-navigation {
+    left: 20%;
+  }
+
+  .main-navigation ul a {
+    padding: 17px 0 17px 30px;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.4);
+    text-align: right;
+  }
+
+  .right-col {
+    padding-left: 200px;
+  }
+
+  .panel-header {
+    font-size: 4.5rem;
+  }
+
+  .panel-header:after {
+    bottom: -1.8rem;
+    height: 4px;
+    width: 4.8rem;
+  }
+
+  .contact-icon {
+    margin: 5% 2%;
+  }
+
+  .form-item label {
+    font-size: 1.8rem;
+    margin-bottom: 1.3rem;
+  }
+
+  .copyright {
+    font-size: 1.5rem;
+  }
+
+  /* Modals */
+
+  .modal-heading {
+    font-size: 2.4rem;
+  }
+
+  .modal-sub-header, .modal-cta {
+    font-size: 1.7rem;
+  }
+
+  .modal-copy, .modal-tech li {
+    font-size: 1.5rem;
+    line-height: 2.1rem;
+  }
+
+  .close-icon {
+    line-height: 44px;
+    right: -19px;
+    top: -19px;
+    width: 44px;
+    font-size: 25px;
+    border-radius: 50%;
+  }
+}
