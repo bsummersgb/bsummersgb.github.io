@@ -8,7 +8,8 @@ document.querySelector( "#nav-toggle" )
 // Opens and closes sidebar navigation on mobile devices
 $(document).ready(function(){
 
-  $("#nav-toggle").click(function() {
+  $("#nav-toggle").click(function(event) {
+    event.preventDefault();
     $(".left-col").toggleClass("open");
   });
 
