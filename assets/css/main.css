@@ -546,6 +546,12 @@ footer {
        -o-opacity: .5;
 }
 
+@media screen and (orientation: landscape) {
+  #nav-toggle span, #nav-toggle span span {
+    top: 10%;
+  }
+}
+
 /* Desktop Styles */
 
 @media (min-width: 980px) {
