@@ -266,21 +266,22 @@ nav li {
 /* About panel */
 
 .about {
-  position: relative;
+  display: table;
+  width: 100%;
   color: #fff;
   background: url('/assets/img/my-desk.jpg') 50% / cover;
+  background-attachment: fixed;
 }
 
 .about-wrapper {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  -webkit-transform: translateY(-50%);
-     -moz-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-       -o-transform: translateY(-50%);
-          transform: translateY(-50%);
+  display: table-cell;
+  vertical-align: middle;
   background: rgba(0, 23, 31, .4);
+  -webkit-background-clip: content-box;
+  -moz-background-clip: content-box;
+  -ms-background-clip: content-box;
+  -o-background-clip: content-box;
+  background-clip: content-box;
 }
 
 .intro-image img {
